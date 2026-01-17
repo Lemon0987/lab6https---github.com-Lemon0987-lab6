@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Basics & Output</title>
+    <style>
+      /* Background and font */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #74ebd5, #ACB6E5);
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #222;
+      }
+
+      h2 {
+        color: #111;
+        margin-top: 30px;
+      }
+
+      button {
+        margin: 5px 5px 10px 0;
+        padding: 8px 15px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #556cd6;
+        color: #fff;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #4054a1;
+      }
+
+      #output {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: rgba(255,255,255,0.8);
+        border-radius: 5px;
+      }
+
+      #datetime {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Basics & Output</h1>
+
+    <h2>1. Display Welcome Message</h2>
+    <button onclick="showAlert()">Show Alert</button>
+    <button onclick="showConsole()">Show in Console</button>
+    <button onclick="showHTML()">Show in Page</button>
+
+    <div id="output"></div>
+
+    <h2>2. Current Date and Time</h2>
+    <p id="datetime">Updating...</p>
+    <button onclick="updateDateTime()">Refresh Time</button>
+
+    <script>
+      function showAlert() {
+        alert("Welcome to JavaScript Lab 28!");
+      }
+
+      function showConsole() {
+        console.log("Welcome message logged to console.");
+      }
+
+      function showHTML() {
+        document.getElementById("output").innerHTML =
+          "<h3>Welcome to JavaScript Lab 28!</h3>" +
+          "<p>This message is displayed using innerHTML.</p>";
+      }
+
+      function updateDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleString();
+        document.getElementById("datetime").innerHTML = dateTimeString;
+      }
+
+      window.onload = updateDateTime;
+      setInterval(updateDateTime, 1000);
+    </script>
+  </body>
+</html>
